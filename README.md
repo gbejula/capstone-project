@@ -58,9 +58,9 @@ Create an Ubuntu instance on AWS for infrastructure deployment. Copy the code fr
 
 > Connect to the AWS Ubuntu instance and change directory into the code. Deploy the _installer.sh_ to update the server and install applications listed below:
 
-![Change directory](../capstone/images/change_dir.png)
+![Change directory](./images/change_dir.png)
 
-![Run installer.sh](../capstone/images/run_installer.png)
+![Run installer.sh](./images/run_installer.png)
 
 > **Update the Update server**
 
