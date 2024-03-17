@@ -50,6 +50,8 @@ Configure Alert manager for alerts and Grafana can be used for visualization.
 
 ## IMPLEMENTATION STEPS FOR DEPLOYMENT.
 
+### Step 1
+
 Create an Ubuntu instance on AWS for infrastructure deployment. Copy the code from the cloned repository to the Ubuntu server to run the deployment application. 
 
 > Clone repo to Ubuntu instance
@@ -79,3 +81,69 @@ sudo apt-get install unzip
 
 > **Install Terraform**
 
+> **Install kubectl**
+
+> **Install AWS CLI**
+
+> **Install Helm**
+
+> **Install Jenkins**
+
+### Step 2
+
+Install Jenkins on the Ubuntu server.
+
+- Install JDK
+
+```
+sudo apt update
+sudo apt install default-jdk-headless
+```
+
+- Install Jenkins
+
+```
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt-get install jenkins
+```
+
+- Verify Jenkins is up and running
+
+```
+sudo systemctl status jenkins
+```
+
+- Perform initial Jenkins setup from the browser by accessing 
+    - Note: open port 8080 by creating a TCP inbound rule in the security group
+
+  ```
+  http://jenkins-server-public-ip-address:8080
+  ```
+
+  ![jenkins-in-browser](images/jenkins_in_browser.png)
+
+  - Retrieve the administrator password from the server using:
+
+  ```
+  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+  ```
+
+  ![jenkins-password](images/jenkins_password.png)
+
+  - Enter the password in the admin page and click continue
+
+  ![jenkins-admin](images/jenkins_admin.png)
+
+  - Click install suggested plugins
+
+  ![Jenkins-plugins](images/jenkins_getting_started.png)
+
+  - Create admin account after plugins installation is complete
+
+  ![Jenkins-admin-signup](images/jenkins_first_admin_signup.png)
+
+  - Jenkins is fully ready for deployment and use
+
+  ![Jenkins-ready](images/jenkins_ready.png)
