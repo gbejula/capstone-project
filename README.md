@@ -50,7 +50,7 @@ Configure Alert manager for alerts and Grafana can be used for visualization.
 
 ## IMPLEMENTATION STEPS FOR DEPLOYMENT.
 
-### Step 1
+### Phase I
 
 Create an Ubuntu instance on AWS for infrastructure deployment. Copy the code from the cloned repository to the Ubuntu server to run the deployment application. 
 
@@ -92,7 +92,7 @@ sudo apt-get install unzip
 
 > **Install Jenkins**
 
-### Step 2
+### Phase II
 
 Install Jenkins on the Ubuntu server.
 
@@ -151,4 +151,41 @@ sudo systemctl status jenkins
 
   ![Jenkins-ready](images/jenkins_ready.png)
 
+  ![Jenkins-dashboard](images/jenkins_dashboard.png)
+
 - Upon completion of installation, access the Jenkins dashboard by signing in with the credentials registered during installation. Jenkins is now accessible on the browser using the public ip address of the server created on AWS instance with port _8080_.
+
+### Phase III
+
+- Create a Jenkins pipeline for the GitHub repository and Jenkins file
+
+- Setup Jenkins credential
+  - Set up the username and password for the pipeline to be able to connect and pull to the repository.
+
+- Create a Jenkins Job
+  - Create a new job and provide a new for the job
+  - Select Pipeline as the job type
+  - Then click "ok" to create the job
+
+* Configure the Pipeline
+  * Scroll to the pipeline section for configuration
+  * Choose source code management (SCM) to retrieve the code for GitHub or any other version code system.
+  * Select Git from the "Pipeline script from SCM" as Git is the SCM.
+  * Enter the GitHub repository URL `https://github.com/gbejula/capstone-project`. Select the credential and the branch for the build.
+
+- Write the Jenkinsfile
+  - The Jenkinsfile defines the pipeline stages, steps and other configurations.
+  - Commit the Jenkinsfile to the repository so that it can be initiated when the pipeline starts.
+
+- Save and Run the job
+  - The build can be triggered manually. However, for the build to be triggered automatically, there must should be a code change and commit to the repository.
+
+  ![Jenkins-configure-pipeline](images/jenkins_pipeline_1.png)
+  
+- Monitoring
+  - The progress of the build can be monitored on the dashboard. More information can be found in view console output and logs.
+
+  ![Jenkins-pipeline-view](images/jenkins_pipeline_stage_view.png)
+
+  ![eks-cluster-created](images/eks_demo.png)
+
