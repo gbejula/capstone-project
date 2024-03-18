@@ -80,6 +80,9 @@ sudo apt-get install unzip
 ```
 
 > **Install Terraform**
+  - Add HashiCorp repository's GPG key to verify the Terraform package.
+  - Add the HashiCorp repository to `/etc/apt/sources.list.d/hashicorp.list`
+  - updates the package lists and installs Terraform using `apt-get`
 
 > **Install kubectl**
 
@@ -147,3 +150,5 @@ sudo systemctl status jenkins
   - Jenkins is fully ready for deployment and use
 
   ![Jenkins-ready](images/jenkins_ready.png)
+
+- Upon completion of installation, access the Jenkins dashboard by signing in with the credentials registered during installation. Jenkins is now accessible on the browser using the public ip address of the server created on AWS instance with port _8080_.
