@@ -85,12 +85,16 @@ sudo apt-get install unzip
   - updates the package lists and installs Terraform using `apt-get`
 
 > **Install kubectl**
-
+  - Kubernetes and all its dependencies are installed. 
+  
 > **Install AWS CLI**
+  - AWS CLI and all its dependencies are installed.
 
 > **Install Helm**
+  - Helm and all its dependencies are installed.
 
 > **Install Jenkins**
+  - Jenkins and all its dependencies are installed.
 
 ### Phase II
 
@@ -157,7 +161,7 @@ sudo systemctl status jenkins
 
 ### Phase III
 
-- Create a Jenkins pipeline for the GitHub repository and Jenkins file
+- Create a Jenkins pipeline for the GitHub repository and Jenkinsfile
 
 - Setup Jenkins credential
   - Set up the username and password for the pipeline to be able to connect and pull to the repository.
@@ -181,7 +185,7 @@ sudo systemctl status jenkins
   - The build can be triggered manually. However, for the build to be triggered automatically, there must should be a code change and commit to the repository.
 
   ![Jenkins-configure-pipeline](images/jenkins_pipeline_1.png)
-  
+
 - Monitoring
   - The progress of the build can be monitored on the dashboard. More information can be found in view console output and logs.
 
@@ -189,3 +193,13 @@ sudo systemctl status jenkins
 
   ![eks-cluster-created](images/eks_demo.png)
 
+
+### Phase IV
+
+- After the Jenkins pipeline is completed, check the Ubuntu server to ensure that the Kubernetes has been deployed in the correct namespace.
+
+  ![kubernetes-namespace-for-socks-shop](images/k8s-namespace.png)
+
+  ![Route-53-setup](images/route_53.png)
+
+  ![socks-shop-display](images/socks_shop_displayed.png)
