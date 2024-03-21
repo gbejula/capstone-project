@@ -2,6 +2,41 @@
 
 ## Project Overview
 
+### Architectural Diagram
+
+![archi diagram](images/architectural_diagram.png)
+
+**GitHub Repository**
+
+This is used to store the source code by the developers
+
+**CI/CD Pipeline**
+
+Continuous integration and continuous deployment pipeline used for the build automation, test and deployment. 
+
+**Build/Deploy Automation**
+
+This is used to deploy images generated to the Kubernetes cluster. 
+
+**Kubernetes Cluster**
+
+The microservice are deployed in the cluster. This manages the containerized applications and services.
+
+**Monitoring and Alerting**
+
+This is used for monitoring and alerts. It helps to keep track of the health and performance of the services. Grafana show a graphical representation for faster views.
+
+**Istio Service Mesh**
+
+This is used for service discovery, load balancing, observability and security of the microservices.
+
+**Logging and Analytics**
+
+This is used for debugging and logs analyzing and performance checks.
+
+
+
+
 ### Objective
 
 Deploy the Socks Shop microservices-based application using Infrastructure as Code (Iac) on Kubernetes, emphasizing efficiency, automation and security.
@@ -48,7 +83,7 @@ Configure Alert manager for alerts and Grafana can be used for visualization.
 - **Sensitive Information**
   - Use Ansible Vault for encrypting sensitive informatin.
 
-## IMPLEMENTATION STEPS FOR DEPLOYMENT.
+## Implementation Steps for Deployment.
 
 ### Phase I
 
